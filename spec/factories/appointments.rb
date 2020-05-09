@@ -4,7 +4,7 @@ require "faker"
 
 FactoryBot.define do
   factory :appointment do
-    date { Time.now }
+    date { Time.now + rand(1..20) }
     location { Faker::Address.full_address }
     association :user
     association :doctor
