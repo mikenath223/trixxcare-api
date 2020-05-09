@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
+require 'faker'
+
 FactoryBot.define do
   factory :doctor do
-    name { "MyString" }
-    image { "MyString" }
-    price { 1 }
-    details { "MyString" }
+    name { Faker::Lorem.sentence }
+    image { Faker::Lorem.sentence }
+    price { Faker::Number.within(range: 100..3000) }
+    details { Faker::Lorem.sentence }
   end
 end

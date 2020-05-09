@@ -11,4 +11,9 @@ class User < ApplicationRecord
   def check_date?
     # user.appointments.none?{ date: >= Time.now } && user.appointments
   end
+
+  def self.from_token_request(request)
+    username = request.params['auth'] && request.params['auth']['username']
+    find_by username: username
+  end
 end

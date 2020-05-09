@@ -1,8 +1,16 @@
+# frozen_string_literal: true
+
+require "faker"
+
 FactoryBot.define do
   factory :appointment do
-    user { nil }
-    doctor { nil }
-    date { "2020-05-08 16:36:26" }
-    location { "MyString" }
+    date { Time.now }
+    location { Faker::Address.full_address }
+    association :user
+    association :doctor
+
+    trait :invalid do
+      date { "" }
+    end
   end
 end
