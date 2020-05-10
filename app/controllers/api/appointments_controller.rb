@@ -2,7 +2,6 @@
 
 class Api::AppointmentsController < ApplicationController
   before_action :authenticate_user
-  # before_action :set_appoint, only: %i[update, destroy]
 
   def index
     @appointment = current_user.appointments
@@ -10,7 +9,10 @@ class Api::AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.create!(user: current_user, doctor_id: create_appoint_params[:doctor_id], date: create_appoint_params[:date], location: create_appoint_params[:location])
+    doctor = create_appoint_params[:doctor_id]
+    date = create_appoint_params[:date]
+    location = create_appoint_params[:location]
+    @appointment = Appointment.create!(user: current_user, doctor_id: doctor, date: date, location: location)
     json_response(@appointment)
   end
 

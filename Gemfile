@@ -24,7 +24,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'knock'
 gem 'pry-rails'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -57,6 +56,11 @@ group :test do
   gem 'database_cleaner'
   gem 'guard', '2.13.0'
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'foreman'
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

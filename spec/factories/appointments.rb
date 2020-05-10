@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "faker"
+require 'faker'
 
 FactoryBot.define do
   factory :appointment do
@@ -10,7 +10,7 @@ FactoryBot.define do
     association :doctor
 
     trait :invalid do
-      date { "" }
+      date { '' }
     end
   end
 end
