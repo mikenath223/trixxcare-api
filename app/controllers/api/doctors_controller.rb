@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::DoctorsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, only: %i[show]
 
   def index
     @doctors = Doctor.all
