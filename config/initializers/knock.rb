@@ -1,5 +1,6 @@
 Knock.setup do |config|
-
+  config.token_lifetime = 1.week
+  config.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
   ## Expiration claim
   ## ----------------
   ##
@@ -8,7 +9,6 @@ Knock.setup do |config|
   ##
   ## Default:
   # config.token_lifetime = 1.day
-
 
   ## Audience claim
   ## --------------
