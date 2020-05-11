@@ -3,16 +3,12 @@
 class Api::UsersController < ApplicationController
   def index
     @users = User.all
-    render json: @users
+    json_response(@users)
   end
 
   def create
-    @user = User.new
-    if @user.valid? && @user.save
-      render json: @user
-    else
-      render json @user.errors, status: 400
-    end
+    @user = User.create!(user_create_params)
+    head :no_content
   end
 
   def find
@@ -26,6 +22,10 @@ class Api::UsersController < ApplicationController
   end
 
   private
+
+  def user_create_params
+    params.require(:user).permit(:username, :password)
+  end
 
   def user_params
     params.require(:user).permit(:username)

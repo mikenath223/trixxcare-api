@@ -71,7 +71,7 @@ docs = [{
 },
         {
   name: "Safia K. Ackmed, M.D.",
-  image: "https://www.mayoclinic.org/-/media/kcms/employees/2018/07/20/18/55/safia-ahmed-15286118.jpg",
+  image: "https://pluspng.com/img-png/png-hd-doctor--359.png",
   price: 160,
   details: "Radiation Oncologist | Breast Clinic | Radiation therapy, Stereotactic radiosurgery, Proton therapy, Intraoperative radiation therapy, Brachytherapy, IMRT, Pediatric central nervous system tumor, Breast cancer, Soft tissue sarcoma",
   location: "Rochester, Minnesota",

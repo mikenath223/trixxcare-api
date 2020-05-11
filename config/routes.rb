@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :appointments
     post "user_token" => "user_token#create"
     post "find_user" => "users#find"
+    get "currentuser" => "appointments#get_user"
     # get "appointments" => "appointments#index"
     # post "appointment" => "appointments#create"
     # post "appointment" => "appointments#update"
