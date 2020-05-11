@@ -28,10 +28,6 @@ class Api::AppointmentsController < ApplicationController
     head :no_content
   end
 
-  def get_user
-    json_response(current_user[:username])
-  end
-
   private
 
   def create_appoint_params

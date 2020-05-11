@@ -21,6 +21,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def get_user
+    json_response({ "user": current_user[:username] })
+  end
+
   private
 
   def user_create_params
