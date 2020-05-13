@@ -9,12 +9,13 @@ class Api::AppointmentsController < ApplicationController
   end
 
   def create
-    doctor = create_appoint_params[:doctor_id]
+    doctor_id = create_appoint_params[:doctor_id]
     date = create_appoint_params[:date]
     location = create_appoint_params[:location]
+    doctor_name = create_appoint_params[:doctor_name]
     if current_user.appointments.none? { |k| k[:date] == date }
-      @appointment = Appointment.create!(user: current_user, doctor_id: doctor, date: date, location: location)
-      json_response(@appointment)
+      @appointment = Appointment.create!(user: current_user, doctor_id: doctor_id, doctor_name: doctor_name, date: date, location: location)
+      head :no_content
     else
       json_response({ "message": "Appointment date and time already exists!" })
     end
@@ -35,7 +36,7 @@ class Api::AppointmentsController < ApplicationController
   private
 
   def create_appoint_params
-    params.permit(:date, :doctor_id, :location)
+    params.permit(:date, :doctor_id, :doctor_name, :location)
   end
 
   def update_appoint_params
