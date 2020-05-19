@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :appointments
     post "user_token" => "user_token#create"
     post "find_user" => "users#find"
-    get "currentuser" => "users#get_user"
+    get "currentuser" => "users#user"
   end
 end
