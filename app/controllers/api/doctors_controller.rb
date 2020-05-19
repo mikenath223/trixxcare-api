@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Api::DoctorsController < ApplicationController
   before_action :authenticate_user, only: %i[show]
 
