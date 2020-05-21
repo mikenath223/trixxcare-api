@@ -72,6 +72,61 @@ The main goal is to create an API backend for the front end react app.
 * Managed state with data on SqliteDB
 * Tests made with [`RSpec`](https://relishapp.com/rspec/)
 
+# API Endpoints
+
+## Users
+
+### GET Request
+> /api/currentuser
+* Requires Authentication
+* Returns current user's username
+
+### POST Request
+> /api/user_token
+* Doesn't require Authentication
+
+* Accepts POST params eg. `{"auth": {"username": "John Doe", "password": "secret"}}`
+
+* Response if successfull - `201 Created`, example return `{"jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"}`
+
+* Response if not successfull - 404 Not Founnd
+
+## Doctors 
+
+### GET Requests
+> /api/doctors
+* Doesn't require Authentication
+
+* Returns all doctors.
+
+> /api/doctors/:id
+* Requires Authentication
+
+* Returns the details of the doctor matching the :id in the request params.
+
+## Appointments
+> All requests to appointments require authentication.
+
+### GET Request
+> /api/appointments
+* Returns all appointments belonging to the current logged in user. Appointments are returned with parameters of doctor_name, location and appointments time.
+
+### POST Request
+> /api/appointments
+* Creates an appointment when sent, returns 204 No Content when succesful, else if unsuccessful returns a hash with an example format like this: `{"message": "Doctor must exist"}`. If appointment with the same date-time already exists it returns an error message of the format: `{"message": "Appointment date and time already exists!"}`.
+
+
+### PATCH/PUT Request
+> /api/appointments/:id
+* Updates an appointment of the id provided for the current user. Returns 204 No Content if appointment belongs to the current user, else returns an error message of the format: `{"message": "Not authorized to perform the above action!"}`.
+
+### DELETE Request
+> /api/appointments/:id
+* Deletes an appointment of the id provided for the current user.  Returns 204 No Content if appointment belongs to the current user, else returns an  error message of the format: `{"message": "Not authorized to perform the above action!"}`.
+
+
+> To send a request with the Authorization Header, simply append the given auth token to the request in the format `Bearer [insert auth token]`.
+
 # Built With
 
 * Passion for code.
