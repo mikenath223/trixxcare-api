@@ -22,7 +22,7 @@ class Api::AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     if @user.id == @appointment.user_id
       @appointment.update(update_appoint_params)
       head :no_content
@@ -33,8 +33,13 @@ class Api::AppointmentsController < ApplicationController
 
   def destroy
     @appointment = Appointment.find(params[:id])
-    @appointment.destroy
-    head :no_content
+    @user = User.find(current_user.id)
+    if @user.id == @appointment.user_id
+      @appointment.destroy
+      head :no_content
+    else
+      json_response("message": 'Not authorized to perform the above action!')
+    end
   end
 
   private
