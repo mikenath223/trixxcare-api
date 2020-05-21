@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   def self.from_token_request(request)
-    username = request.params["auth"] && request.params["auth"]["username"]
+    username = request.params['auth'] && request.params['auth']['username']
     find_by username: username
   end
 end
