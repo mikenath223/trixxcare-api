@@ -1,5 +1,5 @@
 module Api::V1
-  class Api::DoctorsController < ApplicationController
+  class DoctorsController < ApplicationController
     before_action :authenticate_user, only: %i[show]
 
     def index

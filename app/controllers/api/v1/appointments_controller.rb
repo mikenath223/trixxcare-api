@@ -1,5 +1,5 @@
 module Api::V1
-  class Api::AppointmentsController < ApplicationController
+  class AppointmentsController < ApplicationController
     before_action :authenticate_user
 
     def index
