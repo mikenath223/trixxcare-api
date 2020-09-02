@@ -51,6 +51,7 @@ The main goal is to create an API backend for the front end react app.
 
 * Make sure your PG cluster is running
 * Run `bundle install` & `rails webpacker:install`
+* Refer to this (stackoverflow post)[https://stackoverflow.com/questions/38271376/rails-pginsufficientprivilege-error-permission-denied-for-relation-schema-m/44862057#44862057] for instructions on creating a new user(root) with `password` as password.
 * Run `rails db:migrate` to migrate db
 * Run tests with `bundle exec rspec <insert file_path here>`
 * Run `rails db:seed` to generate seed data.

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20200519052923) do
   create_table "appointments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "doctor_id"
-    t.string "date", default: "2020-05-13 04:38:49.647579"
+    t.string "date", default: "2020-09-01 23:26:22.763742"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

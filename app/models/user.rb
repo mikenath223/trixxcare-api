@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_many :appointments
   has_many :doctors, through: :appointments
-  validates :username, uniqueness: true, presence: true, length: { minimum: 6, maximum: 10 }
+  validates :username, uniqueness: true, presence: true, length: { maximum: 245 }
   validates :password, presence: true, length: { minimum: 6 }
 
   def self.from_token_request(request)
